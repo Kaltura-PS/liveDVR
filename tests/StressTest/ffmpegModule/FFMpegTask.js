@@ -114,9 +114,6 @@ FFMpegTask.prototype.stop=function() {
         this._process.kill();
         this._process = null;
     }
-    else{
-        this._logger.warn(" process is not found");
-    }
 }
 
 

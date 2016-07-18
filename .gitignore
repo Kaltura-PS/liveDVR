@@ -30,3 +30,4 @@ node_modules
 # Build files created by node-gyp
 node_addons/FormatConverter/build
 tests/StressTest/config/local.json
+tests/StressTest/config/local.json

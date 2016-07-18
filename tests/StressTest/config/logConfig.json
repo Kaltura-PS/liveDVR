@@ -21,6 +21,6 @@
     "replaceConsole": true,
     "levels": {
         "[all]": "debug",
-        "FFMpegTask": "error"
+        "FFMpegTask": "debug"
     }
 }
