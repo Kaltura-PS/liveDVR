@@ -1,0 +1,53 @@
+{
+        "KalturaService": {
+                "serverAddress": ["http://qa-apache-testing-ubu-01.dev.kaltura.com" , "http://dcsync.testing.qa.kaltura.dev"],
+                "userId": "ami.jeain@kaltura.com",
+                "adminSecret": "bddb72653427b93d8dd11f53d140c20e",
+                "partnerId": 2931
+        },
+
+        "env": {
+                "ffmpeg": "/opt/kaltura/ffmpeg",
+                "sourceFileNames": [
+                        "/opt/kaltura/Sample_Videos/900.mp4",
+                        "/opt/kaltura/Sample_Videos/600.mp4",
+                        "/opt/kaltura/Sample_Videos/400.mp4"
+                ]
+        },
+
+        "entires": [{
+                "entryId": "0_43tyxtt0",
+                "useBackup": false,
+                "flavorsToStream": 3
+        },
+        {
+                "entryId": "0_m5hdcjod",
+                "useBackup": true,
+                "flavorsToStream": 1
+        },
+        {
+                "entryId": "0_yigvycyq",
+                "useBackup": false,
+                "flavorsToStream": 1
+        },
+         {
+                "entryId": "0_2hsvzpmf",
+                "useBackup": true,
+                "flavorsToStream": 1
+        }],
+        "test": {
+                "fixedEntries": {
+                        "count": 1,
+                        "duration": 70,
+                        "minDelay": 1,
+                        "maxDelay": 10
+                },
+                "changingEntries": {
+                        "count": 0,
+                        "duration": 100,
+                        "minDelay": 10,
+                        "maxDelay": 100
+                }
+        }
+}
+
