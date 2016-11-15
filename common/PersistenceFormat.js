@@ -41,6 +41,10 @@ module.exports = persistenceFormat = {
     getMasterManifestName: function () {
         return 'playlist.json';
     },
+
+    getFlavorUriExtension: function () {
+        return 'chunklist.m3u8';
+    },
     
     getMP4FileNamefromInfo: function(chunkPath){
          return chunkPath.replace('.ts','.mp4');
