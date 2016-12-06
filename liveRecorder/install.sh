@@ -6,7 +6,7 @@
 #  Created by Ron Yadgar on 25/09/2016.
 #
 SOURCE_DIRECTORY="/opt/kaltura/liveController/latest"
-HOME_DIRECTORY=`grep recording_base_dir $SOURCE_DIRECTORY/recordingUploader/Config/config.ini | awk '{ print $3 }'`
+HOME_DIRECTORY=`grep recording_base_dir $SOURCE_DIRECTORY/liveRecorder/Config/config.ini | awk '{ print $3 }'`
 HOSTNAME=$(hostname)
 HOSTNAME_DIRECTORY="$HOME_DIRECTORY/$HOSTNAME"
 echo "home directory $HOME_DIRECTORY"
@@ -22,7 +22,6 @@ pip2.7 install  poster
 pip2.7 install psutil
 pip2.7 install m3u8
 pip2.7 install schedule
-pip2.7 install watchdog
 easy_install pycrypto
 mkdir -p $HOME_DIRECTORY
 mkdir -p "$HOME_DIRECTORY/recordings"
@@ -41,5 +40,5 @@ mkdir -p $UPLOAD_TASK_DIRECTORY
 mkdir -p "$UPLOAD_TASK_DIRECTORY/failed"
 mkdir -p "$UPLOAD_TASK_DIRECTORY/incoming"
 mkdir -p "$UPLOAD_TASK_DIRECTORY/processing"
-cp $SOURCE_DIRECTORY/recordingUploader/recording_uploder.sh /etc/init.d
-/etc/init.d/recording_uploder.sh restart
+cp $SOURCE_DIRECTORY/recordingUploader/liveRecorder.sh /etc/init.d/liveRecorder
+/etc/init.d/liveRecorder.sh restart
