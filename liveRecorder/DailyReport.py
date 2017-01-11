@@ -47,11 +47,8 @@ def get_files(command, month, day):
     return new_file, lines_count-1
 
 
-def scan_logs(log_level):
+def scan_logs(log_level, src_dir):
     with open(output_full_path, 'a') as file_output:
-        monthNew =  "%02d" % (now.month,)
-        dayNew = "%02d" % (now.day,)
-        src_dir = os.path.join('/web', 'logs', 'investigate', str(now.year), monthNew, dayNew, 'liveController')
         for file_log in os.listdir(src_dir):
             if file_log.endswith(".gz"):
                 file_path = os.path.join(src_dir, file_log)
@@ -102,7 +99,13 @@ num_files = len([f for f in os.listdir(done_path)
 mail_list = ["ron.yadgar@kaltura.com"]
 write_liveRecorede_stat("pa")
 write_liveRecorede_stat("ny")
-scan_logs('ERROR')
-scan_logs('WARN')
+monthNew = "%02d" % (now.month,)
+dayNew = "%02d" % (now.day,)
+src_dir = os.path.join('/web', 'logs', 'investigate', str(now.year), monthNew, dayNew, 'liveController')
+scan_logs('ERROR', src_dir)
+scan_logs('WARN', src_dir)
+
+src_dir = os.path.join('/web', 'logs', 'investigate', str(now.year), monthNew, dayNew, 'live-recorder')
+scan_logs('ERROR', src_dir)
 
 send_mail("pa-reportsk@jkaltura.com", mail_list, "DailyReport", "DailyReport", output_full_path)
